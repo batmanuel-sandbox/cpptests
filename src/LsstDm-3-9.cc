@@ -31,7 +31,7 @@ Whenever a global function  is  referenced, use the :: operator
 SPECIFICATION
 
 LSST DM C++ Programming Style Guidelines, Section 3 Naming Conventions
-Rule 3-9 Global variables should be avoided and if used always be referred to using the '::' operator.
+Rule 3-9 Global variables [sic] should be avoided and if used always be referred to using the '::' operator.
 
 
 EXAMPLE
@@ -41,7 +41,7 @@ EXAMPLE
 
 DEFINITION
 
-In general, the use of global variables should be avoided. Consider using 
+In general, the use of global functions should be avoided. Consider using 
 singleton objects instead. Only use where required (i.e. reusing a framework 
 that requires it.) See Rule 5-7. 
 
@@ -58,32 +58,32 @@ Implemented based on: Parasoft:CODSTA-CPP-23; no changes
 
 // EXAMPLE
 
-namespace N {
-    void globalFoo1( );
+namespace bad {
+    void globalFooOne( );
 }
 
-void globalFoo1( ) {
+void globalFooOne( ) {
 }
 
-void globalFoo2( ) {
-    globalFoo1( );      // Violation
-    N::globalFoo1( );   // Violation
+void globalFooTwo( ) {
+    globalFooOne( );      // Violation
+    bad::globalFooOne( );   // Violation
 }
 
 
 
 // REPAIR
 
-namespace N {
-    void globalFoo1( );
+namespace good{
+    void globalOne( );
 }
 
-void globalFoo1G( ) {
+void globalTwo( ) {
 }
 
-void globalFoo2G( ) {
-    ::globalFoo1G( );    // OK
-    ::N::globalFoo1( ); // OK
+void globalThree( ) {
+    ::globalTwo( );    // OK
+    ::good::globalOne( ); // OK
 }
 
 
