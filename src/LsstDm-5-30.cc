@@ -70,7 +70,7 @@ int bad( int a[], int b ) {
     int f = 0;  
     a[5] = 56; // Violation
     e= 8;      // Violation
-    foo(56);   // Violation
+    ::foo(56);   // Violation
     return 8;  // Violation
 }
 
@@ -88,7 +88,7 @@ int good( float a[], float b ) {
     int i = 5;        // OK
     a[i] = MAX;       // OK
     e = MAX;          // OK
-    bar(a[5]);        // OK
+    ::bar(a[5]);        // OK
     return  MAX;      // OK
 }
 

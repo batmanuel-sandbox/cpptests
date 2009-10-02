@@ -73,14 +73,14 @@ Implementation and example copied from Parasoft:OPT-26; used unchanged.
 int f(int);
 
 void bad(int x) {
-   int i;             // Violation: i is prematurely declared 
-                      // (the intent is to use i in the for loop only)
+    int i;              // Violation: i is prematurely declared 
+                        // (the intent is to use i in the for loop only)
 
-   int max=0;         // Violation: max initialized with a dummy value
+    int max=0;          // Violation: max initialized with a dummy value
 
-   max = f(x);
-   for (i=0 ; i<max ; ++i) {
-   }
+    max = ::f(x);
+    for (i=0 ; i<max ; ++i) {
+    }
 }
 
 
@@ -92,11 +92,11 @@ int f(int);
 
 void good(int x) {
 
-   int max = f(x);   // OK: max not introduced until meaningful
-                     // value is available
+    int max = ::f(x);   // OK: max not introduced until meaningful
+                        // value is available
 
-   for(int i = 0; i < max; i++) { // OK
-   }
+    for(int i = 0; i < max; i++) { // OK
+    }
 }
 
 

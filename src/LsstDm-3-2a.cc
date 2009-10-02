@@ -25,18 +25,19 @@
 RULE
 
 [LsstDm-3-2a - 3]
-Begin local variable names with a lowercase letters 
+Begin non-const local variable names with a lowercase letters 
 
 
 SPECIFICATION
 
 LSST DM C++ Programming Style Guidelines, Section 3 Naming Conventions
-Rule 3-2  Variable names must be in mixed case starting with lower case.
+Rule 3-2  (Non-Constant) Variable names must be in mixed case starting 
+           with lower case.
 
 EXAMPLE 
 
-	line, savingsAccount
-	enum account { SAVINGS, CHECKING};
+    line, savingsAccount
+    enum account { SAVINGS, CHECKING};
 
 
 DEFINITION
@@ -67,15 +68,26 @@ Implementation based on Parasoft: NAMING-05.
 
 // EXAMPLE
 
-void foo() {
-    int Count;    // Violation
+int _badGlobalVariable;  // VIOLATION
+int BAD_GLOBAL_VARIABLE; // VIOLATION
+
+void setBadDepthDetonation(int depthDetonation){
+    int Height;
+    int _depth;
+    _depth = depthDetonation;   // VIOLATION
+    Height = depthDetonation;   // VIOLATION
 };
 
 
 
 // REPAIR
 
-void fooG() {
-    int count;     // OK
+int goodGlobalVariable;    // OK
+
+void setGoodDepthDetonation(int depthDetonation){
+    int depth;
+    depth = depthDetonation;   // OK
 };
 
+
+int const MY_VAR = 3.2; // not affected by this rule

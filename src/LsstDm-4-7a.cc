@@ -54,7 +54,7 @@ Implementation based on Parasoft:FORMAT-01; unchanged.
 // EXAMPLE
 
 void bad( ) {
-	int i;           // Violation
+    int i;           // Violation
 }
 
 

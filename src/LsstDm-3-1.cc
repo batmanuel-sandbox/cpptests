@@ -21,7 +21,7 @@
  * see <http://www.lsstcorp.org/LegalNotices/>.
  */
 
-/* 
+/*
 RULE
 
 [LsstDm-3-1 - 3]
@@ -36,15 +36,15 @@ Rule 3-1. Names of user defined types must be in mixed case starting with upperc
 
 EXAMPLE
 
-	class Line, SavingsAccount
+class Line, SavingsAccount
 
-	struct {
-    		float bar;
-    		int  yoMama;
-	} Foo;
-	Foo myFoo;
+struct {
+    float bar;
+    int  yoMama;
+} Foo;
+Foo myFoo;
 
-	typedef Vector<Frame> FrameVector;
+typedef Vector<Frame> FrameVector;
 
 
 DEFINITION

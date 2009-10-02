@@ -74,13 +74,13 @@ require space following a comma, also.
 // EXAMPLE
 
 void bad(int j,int k) {  //violation
-   int m;
-   m = j + k;
+    int m;
+    m = j + k;
 
-   int i;
-   for ( i = 0;i <= 10;i++) { // Violation
-       m++;
-   }
+    int i;
+    for ( i = 0;i <= 10;i++) { // Violation
+        m++;
+    }
 }
 
 
@@ -88,13 +88,13 @@ void bad(int j,int k) {  //violation
 // REPAIR
 
 void good(int j, int k) {  // OK
-   int m;
-   m = j + k;
+    int m;
+    m = j + k;
 
-   int i;
-   for ( i = 0; i <= 10; i++) { // OK
-       m++;
-   }
+    int i;
+    for ( i = 0; i <= 10; i++) { // OK
+        m++;
+    }
 }
 
 

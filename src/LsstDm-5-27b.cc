@@ -67,7 +67,7 @@ class Bad {  // Violation
 
 // REPAIR
 
-class Good {            // OK
+class Good {            // OK  (except it's inline)
     Good(const Good &b) {
     } 
 };

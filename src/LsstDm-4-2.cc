@@ -64,7 +64,7 @@ and *.h include files.
 
 // For file: MyClass.h
 
-class MyWork {		// Violation
+class MyWork {    // Violation
 };
 
 
@@ -72,6 +72,6 @@ class MyWork {		// Violation
 
 // For file: MyClass.h
 
-class MyClass {		// OK
+class MyClass {    // OK
 };
 

@@ -36,7 +36,7 @@ Rule 4-1 C++ header files must have the extension .h (preferred)
 
 EXAMPLE
 
-	MyClass.cc, MyClass.h
+    MyClass.cc, MyClass.h
 
 
 DEFINITION

@@ -61,7 +61,7 @@ int bad( int a ) {
     if (a < 0) {     
         goto end;       /* Violation */
     } 
-    a = bad(a-1);
+    a = ::bad(a-1);
 end:
     return a+1;
 }
@@ -72,7 +72,7 @@ end:
 int good( int a ) {
     /* Code was changed and does not use goto anymore */
     if (a >= 0) {
-        a = good(a-1);
+        a = ::good(a-1);
     }
     return a+1;
 }

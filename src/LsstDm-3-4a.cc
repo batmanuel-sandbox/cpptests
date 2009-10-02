@@ -40,7 +40,7 @@ Rule 3-4. Names representing methods or functions should be verbs and
 
 EXAMPLE
 
-	getName(), computeTotalWidth()
+getName(), computeTotalWidth()
 
 
 DEFINITION

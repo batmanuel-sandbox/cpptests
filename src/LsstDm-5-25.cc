@@ -54,9 +54,9 @@ Implementation copied from Parasoft:CODSTA-CPP-54; unchanged.
 // EXAMPLE
 
 class Bad {
-     int bad(int a){  // Violation
-         return a;
-     }	
+    int bad(int a){  // Violation
+        return a;
+    }
 };
 
 
@@ -64,9 +64,9 @@ class Bad {
 // REPAIR
 
 class Good {
-     int good(int a) const {  // OK
-         return a;
-     }	
+    int good(int a) const {  // OK
+        return a;
+    }
 };
 
 

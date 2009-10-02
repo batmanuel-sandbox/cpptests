@@ -47,7 +47,7 @@ Tabs must be expanded by the editor to spaces and should be 4 spaces.
 CAVEAT
 
 Implementation allows the following escape sequences:
-	\\,  \', \", \<Octal Number>,\x<Hexadecimal Number>"
+    \\,  \', \", \<Octal Number>,\x<Hexadecimal Number>"
 
 
 ATTRIBUTION

@@ -25,7 +25,7 @@
 RULE
 
 [LsstDm-3-9-3]
-Whenever a global function  is  referenced, use the :: operator 
+Whenever a non-namespace referenced global function is referenced, use the :: operator 
 
 
 SPECIFICATION
@@ -59,15 +59,14 @@ Implemented based on: Parasoft:CODSTA-CPP-23; no changes
 // EXAMPLE
 
 namespace bad {
-    void globalFooOne( );
+    void globalBadOne( );
 }
 
-void globalFooOne( ) {
+void globalBadOne( ) {
 }
 
-void globalFooTwo( ) {
-    globalFooOne( );      // Violation
-    bad::globalFooOne( );   // Violation
+void globalBadTwo( ) {
+    globalBadOne( );      // Violation
 }
 
 
@@ -78,12 +77,15 @@ namespace good{
     void globalOne( );
 }
 
+namespace myalias4good = good;
+
 void globalTwo( ) {
 }
 
 void globalThree( ) {
     ::globalTwo( );    // OK
-    ::good::globalOne( ); // OK
+    good::globalOne( ); // OK
+    myalias4good::globalOne( ); // OK
 }
 
 

@@ -63,7 +63,8 @@ int globalVar = 0; // to be avoided
 // REPAIR
 
 namespace glob {   // put into namespace
-int const globalVar = 0;
+int globalVar = 0;
+int const CONSTANT_GLOB_VAR = 0;
 }
 
 

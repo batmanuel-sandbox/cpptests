@@ -60,8 +60,8 @@ Implementation and example copied from Parasoft:FORMAT-06; unchanged.
 // EXAMPLE
 
 void bad() {
-   int i; char c; // Violation
-   i = 10; c = 'c';
+    int i; char c; // Violation
+    i = 10; c = 'c';
 }
 
 

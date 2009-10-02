@@ -38,9 +38,9 @@ Rule 3-5 A name representing a typedef must be initial letter capitalized,
 
 EXAMPLE
 
-	typedef unsigned char Byte;
-	typedef unsigned long BitMask;
-	Byte smallMask;
+        typedef unsigned char Byte;
+        typedef unsigned long BitMask;
+        Byte smallMask;
 
 
 DEFINITION
@@ -70,21 +70,21 @@ Copied from NAMING-29; modified to disallow suffices of '_t', '_type',
 // EXAMPLE
 
 class MyClass {
-   int count;
+    int count;
 };
-typedef MyClass Mya_t;	     // Violation
+typedef MyClass Mya_t;       // Violation
 typedef MyClass Myb_type;    // Violation
-typedef MyClass Myc_T;	     // Violation
+typedef MyClass Myc_T;       // Violation
 typedef MyClass Myd_Type;    // Violation
 
 
 // REPAIR
 
 class MyClassG {
-	int count;
+    int count;
 };
-typedef MyClassG Mya;	// OK
-typedef MyClassG Myb;	// OK
-typedef MyClassG Myc;	// OK
-typedef MyClassG Myd;	// OK
+typedef MyClassG Mya;        // OK
+typedef MyClassG Myb;        // OK
+typedef MyClassG Myc;        // OK
+typedef MyClassG Myd;        // OK
 

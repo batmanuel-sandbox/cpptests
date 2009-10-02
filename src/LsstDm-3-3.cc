@@ -48,9 +48,9 @@ Common practice in the C++ development community. In general, the use of
 such constants should be minimized. In many cases implementing the value 
 as a method is a better choice: 
 
-	int getMaxIterations() {     // NOT: MAX_ITERATIONS = 25
-  		return 25;
-	}
+        int getMaxIterations() {     // NOT: MAX_ITERATIONS = 25
+            return 25;
+        }
 
 This form is both easier to read, and it ensures a unified interface towards 
 class values. 

@@ -79,8 +79,8 @@ which may be as little as 1 character).
 
 CAVEAT
 
-This Rule checks only that variable names start with a lowercase letter;
-it does not verify camelCase.
+This Rule checks only that non-const  class variable names start with 
+a lowercase letter; it does not verify camelCase.
 
 Local variables are checked in Rule [LsstDM-3-2a - 3]
 'Enum' variables are checked in Rule [LsstDm-3-2b - 3]
@@ -93,32 +93,26 @@ Implementation copied from Parasoft:NAMING-07; unchanged.
 
 
 // EXAMPLE
+
 class BadClass {
 public:     
-    BadClass(const BadClass &b);
+    int   _a;            // VIOLATION
+    int   Ab;            // VIOLATION
+protected:
+    int   _Bb;           // VIOLATION
 private:
-    int  length; 	// VIOLATION
+    int  length;         // VIOLATION
 };
-
-void setBadDepthDetonation(int depthDetonation){
-    int depth;
-    depth = depthDetonation; 	// VIOLATION
-};
-
 
 
 // REPAIR
+
 class GoodClass {
-public: GoodClass(const GoodClass &b);
+public:     
+    int   a;            // OK
+protected:
+    int   b;            // OK
 private:
-    int  _length;	// OK
+    int  _length;       // OK
 };
-
-void setGoodDepthDetonation(int depthDetonation) {
-    int _depth;
-    _depth = depthDetonation;	// OK
-};
-
-
-
 

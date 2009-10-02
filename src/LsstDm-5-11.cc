@@ -67,7 +67,7 @@ int mad() {
 }
 
 void bad( int x, int y ) {
-  if (mad()) {}	// Violation
+  if (::mad()) {}        // Violation
   if (y) {}     // Violation
 }
 
@@ -80,7 +80,7 @@ int foo() {
 }
 
 void good( int x, int y ) {
-  if (foo() != 0) {}	// OK
+  if (::foo() != 0) {}        // OK
   if (y != 0) {}        // OK
 }
 

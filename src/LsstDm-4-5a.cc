@@ -87,7 +87,7 @@ class MyClass {
 public:
     inline MyClass( ) {};               // Violation
     MyClass( const MyClass& ) {};       // Violation
-    ~MyClass( ) {};                	// Violation
+    ~MyClass( ) {};                     // Violation
 };
 
 

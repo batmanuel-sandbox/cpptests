@@ -40,7 +40,7 @@ Rule 3-4. Names representing methods or functions should be verbs and
 
 EXAMPLE
 
-	getName(), computeTotalWidth()
+getName(), computeTotalWidth()
 
 
 DEFINITION
@@ -70,7 +70,7 @@ Implementation based on Parasoft:NAMING-34.
 
 class BadClass {
 public:
-	void GetName() {}   // Violation
+    void const GetName() {}   // Violation
 };
 
 
@@ -78,6 +78,6 @@ public:
 
 class GoodClass {
 public:
-	void getName() {}    // OK
+    void const getName() {}    // OK
 };
 

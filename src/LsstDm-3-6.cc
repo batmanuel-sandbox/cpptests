@@ -36,7 +36,7 @@ Rule 3-6. Names representing namespaces should be all lowercase and
 
 EXAMPLE
 
-	analyzer, iomanager, mainwindow
+   analyzer, iomanager, mainwindow
 
 
 DEFINITION

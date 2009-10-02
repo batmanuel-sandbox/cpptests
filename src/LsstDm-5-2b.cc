@@ -36,17 +36,17 @@ Rule 5-2 The parts of a class must be sorted 'public' , 'protected' ,
 EXAMPLE
 
 class MyClass{
-	public:
-    		int anInt;
-    		int doSomething();
-	protected:
-    		float aFloat;
-    		float doSomethingElse();
-	private:
-    		char _aChar;
-    		char doSomethingPrivately();
-  	...
-	}
+        public:
+            int anInt;
+            int doSomething();
+        protected:
+            float aFloat;
+            float doSomethingElse();
+        private:
+            char _aChar;
+            char doSomethingPrivately();
+          ...
+        }
 
 DEFINITION
 
@@ -73,10 +73,10 @@ Implemented based on Parasoft:CODSTA-CPP-47; unchanged.
 
 // EXAMPLE
 
-class Test {	
-private:		// Violation
+class Test {
+private:                // Violation
     void foo3( );
-protected:		// Violation
+protected:              // Violation
     void foo2( );
 public:
     void foo1( );
@@ -87,11 +87,11 @@ public:
 // REPAIR
 
 class TestG {
-public:			// OK
+public:                // OK
     void foo1( );
-protected:		// OK
+protected:             // OK
     void foo2( );
-private:		// OK
+private:               // OK
     void foo3( );
 };
 

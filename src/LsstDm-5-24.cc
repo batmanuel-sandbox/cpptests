@@ -62,11 +62,11 @@ struct Bad {
     int y;
 };
 
-int Bar( Bad &f ) {  // Violation
+int bar( Bad &f ) {  // Violation
     return f.x;
 }
 
-int FooBar( Bad &f ) { // OK
+int foo( Bad &f ) { // OK
     return f.x++;
 }
 
@@ -77,7 +77,7 @@ struct Good {
     int y;
 };
 
-int Bar( const Good &f ) {  // OK
+int bar( const Good &f ) {  // OK
     return f.x;
 }
 
