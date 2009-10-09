@@ -21,80 +21,46 @@
  * see <http://www.lsstcorp.org/LegalNotices/>.
  */
 
-/*
+/* 
+
 RULE
 
-[LsstDm-3-9-3]
-Whenever a non-namespace referenced global function is referenced, use the :: operator 
+[LsstDm-3-3a-3]
+Identifiers for enumeration values shall be uppercase using
+underscore as word separator.
 
 
 SPECIFICATION
 
 LSST DM C++ Programming Style Guidelines, Section 3 Naming Conventions
-Rule 3-9 Global variables [sic] should be avoided and if used always be referred to using the '::' operator.
+Rule 3-3 Named constants (including enumeration values) must be all 
+uppercase using underscore to separate words.
 
 
 EXAMPLE
 
-::mainWindow.open(), ::applicationContext.getName()
+    enum fish { TROUT, CARP, HALIBUT };
 
 
 DEFINITION
 
-In general, the use of global functions should be avoided. Consider using 
-singleton objects instead. Only use where required (i.e. reusing a framework 
-that requires it.) See Rule 5-7. 
-
-
-CAVEAT
-
+Common practice in the C++ development community. 
+Values with words separated by underscore are accepted.
 
 
 ATTRIBUTION
 
-Implemented based on: Parasoft:CODSTA-CPP-23; no changes
+Implementation based on Parasoft:NAMING-42; modified for LSST needs.
 */
-
 
 // EXAMPLE
 
-namespace bad {
-    void globalBadOne( );
-}
+enum switchPosition {up, down}; // Violation
 
-void globalBadOne( ) {
-}
-
-void globalBadTwo( ) {
-    globalBadOne( );      // Violation
-}
-
+enum switchPosition1 {Up1, Down1}; // Violation
 
 
 // REPAIR
 
-
-namespace good{
-    void globalOne( );
-}
-
-namespace myalias4good = good;
-
-void globalTwo( ) {
-}
-
-void globalThree( ) {
-    ::globalTwo( );    // OK
-    good::globalOne( ); // OK
-    myalias4good::globalOne( ); // OK
-}
-
-#include <cmath>
-using namespace std;
-void globalOne(float x) {
-    if (! isnan(x) ) {
-    ;
-    }
-}
-
+enum switchPosition2 {UP2, DOWN2};  // OK
 

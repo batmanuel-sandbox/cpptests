@@ -25,9 +25,8 @@
 
 RULE
 
-[LsstDm-3-3-3]
-Identifiers for constant and enumerator values shall be uppercase using
-underscore as word separator.
+[LsstDm-3-3b-3]
+All #define constants shall be in uppercase using underscore to separate words.
 
 
 SPECIFICATION
@@ -39,7 +38,7 @@ uppercase using underscore to separate words.
 
 EXAMPLE
 
-MAX_ITERATIONS, COLOR_RED
+    #define MAX_ITERATION 25
 
 
 DEFINITION
@@ -60,20 +59,14 @@ Identifiers with words separated by underscore are accepted.
 
 ATTRIBUTION
 
-Implementation based on Parasoft:NAMING-42; modified for LSST need.
+Implementation based on Parasoft:NAMING-01 unchanged.
 */
 
 // EXAMPLE
-
-const int Max_pressure = 100;    // Violation
-enum Switch_position {Up, down}; // Violation
-
-const int max_pressure = 100;    // Violation
-enum switch_position {Up1, down1}; // Violation
+#define maxIterations 25     // Violation
 
 
 // REPAIR
 
-const int MAX_PRESSURE = 100;     // OK
-enum SWITCH_POSITION {up2, down2};  // OK
+#define MAX_ITERATIONS 25     // OK
 

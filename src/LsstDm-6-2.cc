@@ -124,5 +124,17 @@ void kooG( int x){
     }
 }
 
+void good() {
+    int aaa = 1;
+    switch (aaa) {
+      case 1:         // Allowable indent for 'case/default'
+        ;
+        break;
+      default:
+        ;
+    }
+}
+
+
 
 

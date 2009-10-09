@@ -24,8 +24,8 @@
 /* 
 RULE
 
-[LsstDm-4-5a-3]
-Avoid inline functions except for simple accessors/mutators.
+[LsstDm-4-5b-3]
+Avoid inline constructors and destructors 
 
 SPECIFICATION
 
@@ -35,6 +35,9 @@ Rule 4-5: Inline functions are prohibited except for simple accessors/mutators
 
 
 EXAMPLE 
+
+#ifndef LSST_FOO_H
+#define LSST_FOO_H
 
 class Foo {
 public:
@@ -48,6 +51,7 @@ private:
     int anotherValue;
 };
 
+#endif // LSST_FOO_H
 
  
 DEFINITION
@@ -86,18 +90,6 @@ public:
     ~MyClass( ) {};                     // Violation
 };
 
-class Bad {
-public:
-    Bad();
-    virtual ~Bad();
-    int getValue() const { return value; };
-    int getAnotherValue() const;
-
-private:
-    int value;
-    int anotherValue;
-};
-
 
 
 // REPAIR
@@ -112,17 +104,4 @@ public:
 MyClassG::MyClassG( ) {}
 MyClassG::MyClassG( const MyClassG& ) {}
 MyClassG::~MyClassG( ) {}
-
-class Foo {
-public:
-    Foo();
-    virtual ~Foo();
-    int doit() { value=10; value=2;value=3;value=5;value=anotherValue; value++;value++; anotherValue = value;};
-    int getValue() const { return value; };
-    int getAnotherValue() const;
-
-private:
-    int value;
-    int anotherValue;
-};
 
