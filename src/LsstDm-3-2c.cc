@@ -24,8 +24,8 @@
 /* 
 RULE
 
-[LsstDm-3-2a - 3]
-Begin non-const local variable names with a lowercase letters 
+[LsstDm-3-2c - 3]
+Begin non-const global variable names with a lowercase letters 
 
 
 SPECIFICATION
@@ -52,7 +52,7 @@ which may be as little as 1 character).
 
 CAVEAT
 
-This Rule checks only that local variable names start with a lowercase letter; 
+This Rule checks only that global variable names start with a lowercase letter; 
 it does not verify camelCase. 
 
 'Enum' variables are checked in Rule [LsstDm-3-2b - 3]
@@ -67,20 +67,13 @@ Implementation based on Parasoft: NAMING-05.
 
 // EXAMPLE
 
-void setBadDepthDetonation(int depthDetonation){
-    int Height;
-    int _depth;
-    _depth = depthDetonation;   // VIOLATION
-    Height = depthDetonation;   // VIOLATION
-};
+int _badGlobalVariable;  // VIOLATION
+int BAD_GLOBAL_VARIABLE; // VIOLATION
+
 
 
 
 // REPAIR
 
-
-void setGoodDepthDetonation(int depthDetonation){
-    int depth;
-    depth = depthDetonation;   // OK
-};
+int goodGlobalVariable;    // OK
 
