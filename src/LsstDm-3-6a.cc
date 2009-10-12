@@ -22,56 +22,53 @@
  */
 
 /* 
+
 RULE
 
-[LsstDm-3-6 - 3]
+[LsstDm-3-6a]
+The name of a namespace will be all lowercase.
 
 
 SPECIFICATION
 
 LSST DM C++ Programming Style Guidelines, Section 3 Naming Conventions
-Rule 3-6. Names representing namespaces should be all lowercase and 
-     based on component or directory name. 
+Rule 3-6 Names representing namespaces should be all lowercase and 
+based on component or directory name.
 
 
 EXAMPLE
 
-   analyzer, iomanager, mainwindow
+namespace afwmath = lsst::afw::math;
 
 
 DEFINITION
 
-Common practice in the C++ development community. 
-
+Rule improves readability and maintainability.
 
 
 CAVEAT 
 
-This Rule only checks that namespace names starts with a lowercase letter;
-    it does not check that namespace names are based on component 
-    or directory name.
+This Rule only checks that namespace names are lowercase;
+it does not check that namespace names are based on component 
+or directory name
 
 
+ATTRIBUTION
 
-ATTTRIBUTION
-
-Implementation based on Parasoft:NAMING-30; heavily modified to conform 
-to LSST rule.
+Copied from Naming-30; heavily modified to conform to LSST rule.
 */
-
 
 // EXAMPLE TO FAIL
 
 namespace lsst {
 namespace afw {
 namespace math {
-
 }}}
+
 namespace afwMath = lsst::afw::math;    //violation
 
 
-
-// REPAIR
+// REPAIR 
 
 namespace afwmath = lsst::afw::math;    // OK
 
