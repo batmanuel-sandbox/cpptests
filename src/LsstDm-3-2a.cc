@@ -70,8 +70,8 @@ Implementation based on Parasoft: NAMING-05.
 void setBadDepthDetonation(int depthDetonation){
     int Height;
     int _depth;
-    _depth = depthDetonation;   // VIOLATION
-    Height = depthDetonation;   // VIOLATION
+    _depth = depthDetonation;  // VIOLATION
+    Height = depthDetonation;  // VIOLATION
 };
 
 
@@ -80,7 +80,10 @@ void setBadDepthDetonation(int depthDetonation){
 
 
 void setGoodDepthDetonation(int depthDetonation){
+    int const Width=3;           // not an error since it's a const
+    int height;
     int depth;
     depth = depthDetonation;   // OK
+    height = depthDetonation;  // OK
 };
 

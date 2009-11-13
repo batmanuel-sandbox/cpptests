@@ -48,6 +48,9 @@ that requires it.) See Rule 5-7.
 
 CAVEAT
 
+If a non-namespace referenced global function is defined 'static', it is no
+longer considered 'global' since the loader does not extend its domain outside
+of the file in which it is defined.
 
 
 ATTRIBUTION
@@ -56,7 +59,24 @@ Implemented based on: Parasoft:CODSTA-CPP-23; no changes
 */
 
 
-// EXAMPLE
+// EXAMPLE  
+
+#include <string>
+#include <cmath>
+using namespace std;
+
+#define EXEC_TRACE 20
+static void execTrace( string s, int level = EXEC_TRACE ){
+}
+
+void globalOne(float x) {
+    if ( isnan(x) ) {                   // show using namespace OK with 'std'
+    }
+    if ( std::isnan(x) ) {              // show explicit use of namespace ok 
+    }   
+    execTrace("Demo static function");  // show function declared static OK
+}
+
 
 namespace bad {
     void globalBadOne( );
@@ -66,7 +86,7 @@ void globalBadOne( ) {
 }
 
 void globalBadTwo( ) {
-    globalBadOne( );      // Violation
+    globalBadOne( );            // Violation
 }
 
 
@@ -84,17 +104,8 @@ void globalTwo( ) {
 }
 
 void globalThree( ) {
-    ::globalTwo( );    // OK
-    good::globalOne( ); // OK
+    ::globalTwo( );             // OK
+    good::globalOne( );         // OK
     myalias4good::globalOne( ); // OK
 }
-
-#include <cmath>
-using namespace std;
-void globalOne(float x) {
-    if (! isnan(x) ) {
-    ;
-    }
-}
-
 

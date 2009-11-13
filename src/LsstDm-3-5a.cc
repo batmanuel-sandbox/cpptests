@@ -25,8 +25,7 @@
 RULE
 
 [LsstDm-3-5a-3]
-Names of non-scalar typedefs must not be suffixed with "_t", "_type", "_T", 
-"_Type" 
+Names of typedefs must not be suffixed with "T" or "Type" 
 
 SPECIFICATION
 
@@ -48,20 +47,17 @@ DEFINITION
 This syntax is consistent with template type names and classes which are 
 also similar in usage. 
 
-Non-scalar typedefs shall not be suffixed with an underscore followed 
-by  't', 'type', 'T', or 'Type'. 
+Typedefs shall not be suffixed with 'T' or 'Type'. 
 
 
 CAVEAT
 
-This Rule checks only that the initial letter is uppercase; it does not
-check CamelCase nor does it check the prefix condition.
+This Rule does not check CamelCase nor does it check the prefix condition.
 
 
 ATTRIBUTION
 
-Copied from NAMING-29; modified to disallow suffices of '_t', '_type', 
-'_T', '_Type'
+Copied from NAMING-29; modified to disallow suffices of 'T', 'Type'
 
 */
 
@@ -72,10 +68,11 @@ Copied from NAMING-29; modified to disallow suffices of '_t', '_type',
 class MyClass {
     int count;
 };
-typedef MyClass Mya_t;       // Violation
-typedef MyClass Myb_type;    // Violation
-typedef MyClass Myc_T;       // Violation
-typedef MyClass Myd_Type;    // Violation
+typedef MyClass mya;        // Violation of Rule 3-1 
+typedef MyClass mybT;       // Violation of Rule 3-1 and Rule 3-5a
+typedef MyClass mycType;    // Violation of Rule 3-1 and Rule 3-5a
+typedef MyClass MydT;       // Violation of Rule 3-5a
+typedef MyClass MyeType;    // Violation of Rule 3-5a
 
 
 // REPAIR
@@ -87,4 +84,5 @@ typedef MyClassG Mya;        // OK
 typedef MyClassG Myb;        // OK
 typedef MyClassG Myc;        // OK
 typedef MyClassG Myd;        // OK
+typedef MyClassG Mye;        // OK
 

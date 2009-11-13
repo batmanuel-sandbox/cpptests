@@ -75,5 +75,6 @@ int BAD_GLOBAL_VARIABLE; // VIOLATION
 
 // REPAIR
 
+int const GoodGlobalVariableName=3;  // uppercase OK since variable is a const
 int goodGlobalVariable;    // OK
 

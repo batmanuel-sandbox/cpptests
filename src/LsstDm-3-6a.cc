@@ -26,19 +26,19 @@
 RULE
 
 [LsstDm-3-6a]
-The name of a namespace will be all lowercase.
+The name of a namespace will be camelCase with leading lowercase letter.
 
 
 SPECIFICATION
 
 LSST DM C++ Programming Style Guidelines, Section 3 Naming Conventions
-Rule 3-6 Names representing namespaces should be all lowercase and 
-based on component or directory name.
+Rule 3-6 Names representing namespaces should be camelCase with leading 
+lowercase letter  and based on component or directory name.
 
 
 EXAMPLE
 
-namespace afwmath = lsst::afw::math;
+namespace afwMath = lsst::afw::math;
 
 
 DEFINITION
@@ -65,10 +65,10 @@ namespace afw {
 namespace math {
 }}}
 
-namespace afwMath = lsst::afw::math;    //violation
+namespace afwmath = lsst::afw::math;    //violation
 
 
 // REPAIR 
 
-namespace afwmath = lsst::afw::math;    // OK
+namespace afwMath = lsst::afw::math;    // OK
 

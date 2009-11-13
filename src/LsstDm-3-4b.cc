@@ -25,7 +25,9 @@
 RULE
 
 [LsstDm-3-4b - 3]
-Member function names must start with lowercase letter (camelCase) 
+Public and Protected member function names must start with lowercase letter 
+(camelCase); Private member function names must lead with '_' and
+then start with lowercase letter (camelCase).
 
 
 SPECIFICATION
@@ -33,6 +35,9 @@ SPECIFICATION
 LSST DM C++ Programming Style Guidelines, Section 3 Naming Conventions
 Rule 3-4. Names representing methods or functions should be verbs and 
      must be written in mixed case starting with lowercase. 
+
+     Private member function names must additonally start with an underscore 
+     ('_').
 
      Do not put a space between the function name and the opening 
      parenthesis when declaring or invoking the function. 
@@ -70,7 +75,14 @@ Implementation based on Parasoft:NAMING-34.
 
 class BadClass {
 public:
-    void const GetName() {}   // Violation
+    void const GetPublic() const {}           // Violation
+    void const _getAnotherPublic() const {}   // Violation
+protected:
+    void const GetProtected() const {}          // Violation
+    void const _getAnotherProtected() const {}  // Violation
+private:
+    void const GetPrivate() const {}          // Violation
+    void const getAnotherPrivate() const {}   // Violation
 };
 
 
@@ -78,6 +90,13 @@ public:
 
 class GoodClass {
 public:
-    void const getName() {}    // OK
+    void const getPublic() const {}           // OK
+    void const getAnotherPublic() const {}    // OK
+protected:
+    void const getProtected() const {}          // OK
+    void const getAnotherPrivate() const {}   // OK
+private:
+    void const _getPrivate() const {}         // OK
+    void const _getAnotherPrivate() const {}  // OK
 };
 

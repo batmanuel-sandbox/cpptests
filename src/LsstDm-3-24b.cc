@@ -31,7 +31,7 @@ Begin all boolean type methods with 'is' or 'has', 'can', 'should'.
 SPECIFICATION
 
 LSST DM C++ Programming Style Guidelines, Section 3 Naming Conventions
-Rule 3-24  The prefix ;is; should be used for boolean variables and methods.
+Rule 3-24  The prefix 'is' should be used for boolean variables and methods.
 
 EXAMPLE 
 
@@ -53,8 +53,8 @@ situations. These are the 'has', 'can' and 'should' prefixes.
 
 CAVEAT
 
-This rule only checks boolean methods.  Boolean variables are checked in Rule
-LsstDm-3-24a]
+This Rule only checks boolean methods.  Boolean variables are checked in Rule
+LsstDm-3-24a].  Boolean operator functions are not affected by this Rule.
 
 
 ATTRIBUTION
@@ -69,7 +69,9 @@ bool sorted();       // Violation
 bool licensed();     // Violation
 
 
+
 // REPAIR
 
 bool shouldSort();  // OK
 bool hasLicense();  // OK
+
