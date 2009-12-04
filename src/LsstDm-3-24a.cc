@@ -65,9 +65,41 @@ Implementation based on Parasoft: NAMING-08.
 
 // EXAMPLE
 
-bool ok;              // Violation
+bool Bad;              // Violation
 
+class BadClass {
+public:
+    bool  aBool;         // VIOLATION
+    bool  _isBool;       // VIOLATION
+protected:
+    bool  bBool;         // VIOLATION
+    bool  _hasBool;      // VIOLATION
+private:
+    bool cBool;          // VIOLATION
+    bool shouldBool;     // VIOLATION
+};
+
+void badFcn() {
+    bool badFcnVar;
+    badFcnVar = 0;
+}
 
 // REPAIR
 
-bool isDone;         // OK
+bool isGood;         // OK
+
+class GoodClass {
+public:
+    bool  isBool;     // OK
+protected:
+    bool  hasBool;    // OK
+private:
+    bool _canBool;    // OK
+    bool _shouldBool; // OK
+};
+
+
+void goodFcn() {
+    bool isGoodFcnVar;
+    isGoodFcnVar = 0;
+}

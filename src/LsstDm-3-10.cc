@@ -25,8 +25,12 @@
 RULE
 
 [LsstDm-3-10 - 3]
-Private variable must have '_' prefix followed by lowercase letter (_camelCase);
-public and protected variables must start with lowercase (camelCase)
+Private non-boolean variables must have '_' prefix followed by lowercase 
+    letter (_camelCase);
+public and protected non-boolean variables must start with 
+    lowercase letter (camelCase);
+the first camel word in a boolean variable must be one of 'is', 'has', 'can',
+    'should'.
 
 
 SPECIFICATION
@@ -34,6 +38,8 @@ SPECIFICATION
 LSST DM C++ Programming Style Guidelines, Section 3 Naming Conventions
 Rule 3-10 Private class variables must have underscore prefix.
 Rule 3-2  Variable names must be in mixed case starting with lower case.
+Rule 3-24 Boolean Variable names must start with one of 'is', 'has', 'can',
+    'should'. 
 
 EXAMPLE
 
@@ -93,26 +99,50 @@ Implementation copied from Parasoft:NAMING-07; unchanged.
 
 
 // EXAMPLE
+bool BadLocal;           // VIOLATION
 
 class BadClass {
 public:     
     int   _a;            // VIOLATION
-    int   Ab;            // VIOLATION
+    int   _isA;          // VIOLATION
+    int   Aa;            // VIOLATION
+    bool  aBool;         // Poor form but does not violate this Rule
+    bool  _isBool;       // VIOLATION
 protected:
-    int   _Bb;           // VIOLATION
+    int   _b;            // VIOLATION
+    int   _isB;          // VIOLATION
+    int   Bb;            // VIOLATION
+    bool  bBool;         // Poor form but does not violate this Rule
+    bool  _hasBool;      // VIOLATION
 private:
     int  length;         // VIOLATION
+    bool cBool;          // VIOLATION
+    bool shouldBool;     // VIOLATION
 };
 
+void badFcn() {
+    bool BadFcnVar;
+}
 
 // REPAIR
 
+bool isGoodLocal;     // OK
+
 class GoodClass {
 public:     
-    int   a;            // OK
+    int   a;          // OK
+    int   isA;        // OK poor form; Rule doesn't complain re bool prefixes
+    bool  isBool;     // OK
 protected:
-    int   b;            // OK
+    int   b;          // OK
+    int   isB;        // OK poor form; Rule doesn't complain re bool prefixes
+    bool  hasBool;    // OK
 private:
-    int  _length;       // OK
+    int  _length;     // OK
+    bool _canBool;    // OK
+    bool _shouldBool; // OK
 };
 
+void goodFcn() {
+    bool isGoodFcnVar; // OK
+}
