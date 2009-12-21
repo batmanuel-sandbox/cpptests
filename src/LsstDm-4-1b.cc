@@ -24,13 +24,14 @@
 /* 
 RULE
 
-[LsstDm-4-1b-3]
-header files in C++ always have the file name extension ".h" or ".hpp" 
+[LsstDm-4-a-3]
+Header files in C++ always have the file name extension ".h" or ".hpp";
+Source files in C++ always have the file name extension ".cc". 
 
 SPECIFICATION
 
 LSST DM C++ Programming Style Guidelines, Section 4 File
-Rule 4-1 C++ header files must have the extension .h (preferred) 
+Rule 4-1b C++ header files must have the extension .h (preferred) 
      or .hpp (allowed). Source files must have the extension .cc .
 
 
@@ -46,7 +47,6 @@ These are accepted C++ standards for file extension.
 
 CAVEAT
 
-Check on .cc filenames is LsstDm-4-1a/
 
 
 ATTRIBUTION
@@ -59,14 +59,20 @@ Implementation based on: NAMING-41; modified to include legal ".hpp", too
 
 //file.cpp
 
-#include "test.hh"   // Violation
+#include "test.hh"    // Violation
+#include "test.notcc" // Violation
+void foo( ) {
+}
 
 
 
 // REPAIR
 
-//file.cpp
+//file.cc
 
-#include "test.h"   // OK
-#include "test.hpp"   // OK
+#include "test.h"    // OK
+#include "test.hpp"  // OK
 
+#include "test.cc"   // OK
+void lsstDm41b( ) {
+}

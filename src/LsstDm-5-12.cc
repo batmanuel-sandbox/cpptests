@@ -25,20 +25,27 @@
 RULE
 
 Floating-point expressions should never be directly tested for equality 
-or inequality
+or inequality unless in comparison to zero ("0").
 [LsstDm-5-12 - 3]
 
 SPECIFICATION
 
 LSST DM C++ Programming Style Guidelines, Section 5 Statements
-Rule 5-12 Floats and doubles should never be directly tested for equality.
+Rule 5-12 Floats and doubles should never be directly tested for equality 
+unless in comparison to zero.
 
 
 
 EXAMPLE
 
-if (value == 1.0)    // Subject to roundoff error
-if (fabs(value - 1.0) < epsilon)   // OK
+if (fabs(value - 1.0) < epsilon)                  // Preferred
+
+if (b == 0 && sigma2 == 0) {                  // OK in specific situations
+    _sigma2 = 1.0;  //avoid 0/0 at center of PSF  
+}
+
+if (value == 1.0)          // No: Subject to roundoff error
+
 
 
 DEFINITION
@@ -67,22 +74,64 @@ Implementation and example copied from Parasoft:MISRA2004-13_3; unchanged.
 
 // EXAMPLE
 
-void foo() {
-    float x, y;
+void bad( ) 
+{
+    float sigma2;
+    if ( sigma2 == 1 );      // Violation
+    if ( sigma2 == 1.0 );    // Violation
+}
 
-    if (x == y);      // Violation
-    if (x == 0.0f);   // Violation
+void anotherBad() 
+{
+    float *z;
+    float x, y;
+    int i;
+    if ( x == y );           // VIOLATION
+    if ( x == 1.0 );         // VIOLATION
+    if ( 1.0 == x );         // VIOLATION
+    if ( x == i );           // VIOLATION
+    if ( i == x );           // VIOLATION
+    if ( *z == 1 );          // VIOLATION
+    if ( 1 == *z );          // VIOLATION
+    if ( *z == 1.0 );        // VIOLATION
+    if ( 1.0 == *z );        // VIOLATION
+    if ( i == 0.0 );         // VIOLATION
+    if ( i == 1.0 );         // VIOLATION
+    if ( x == 010 );         // VIOLATION
+
 }
 
 
 // REPAIR
-
-void foo( float epsilon ) {
-    float x, y;
-
-    if (x - epsilon <= y && y <= x + epsilon);  // OK
-    if (-epsilon <= x && x <= epsilon);         // OK
+void good( ) 
+{
+    float sigma2;
+    if (sigma2 == 0) {}      // OK
+    if (sigma2 == 0.0) {}    // Failing still 
 }
 
+void anotherGood( float epsilon ) 
+{
+    float *z;
+    int i,j;
+    float x, y;
+    if (x - epsilon <= y && y <= x + epsilon);  // OK
+    if (-epsilon <= x && x <= epsilon);         // OK
 
+    if ( x == 0 );
+    if ( x == 00 );
+    if ( 0 == x ); 
+    if ( 0 == 1.0 );         
+    if ( 1.0 == 0 );
+    if ( 0 == 0.0 );
+    if ( 0.0 == 0 );
+    if ( x == 0.0 );  //Failing still
+    if ( 0.0 == x );  //Failing still
+    if ( z == 0 );
+    if ( *z == 0 );
+    if ( *z == 0.0 ); //Failing still
+    if ( i == 0 );
+    if ( i == 1 );
+    if ( i == j );
+}
 

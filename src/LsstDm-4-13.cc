@@ -56,13 +56,11 @@ Implemented copied from Parasoft:CODSTA-CPP-39; unchanged.
 */
 
 // EXAMPLE
-
 namespace boo{
     #include <stdio.h>
     using namespace std;    // Violation
     #include <stddef.h>
 }
-
 
 
 // REPAIR

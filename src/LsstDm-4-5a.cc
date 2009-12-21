@@ -117,7 +117,8 @@ class Foo {
 public:
     Foo();
     virtual ~Foo();
-    int doit() { value=10; value=2;value=3;value=5;value=anotherValue; value++;value++; anotherValue = value;};
+    void doit() { value=10; value=2;value=3;value=5;value=anotherValue; 
+                 value++;value++; anotherValue = value;};
     int getValue() const { return value; };
     int getAnotherValue() const;
 

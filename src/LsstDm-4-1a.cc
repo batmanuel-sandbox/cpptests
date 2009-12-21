@@ -1,4 +1,6 @@
-// -*- LSST-C++ -*-
+/*  THIS RULE IS NOT IMPLEMENTED IN PARASOFT YET!!!
+    // -*- LSST-C++ -*- 
+ */
 /* 
  * LSST Data Management System
  * Copyright 2008, 2009 LSST Corporation.
@@ -25,50 +27,41 @@
 RULE
 
 [LsstDm-4-1a-3]
-Implementation files in C++ always have the file name extension ".cc" 
+The head of each .h and each .cc file must being with a fixed format 
+comment declaring the file contents and format to emacs.
 
 SPECIFICATION
 
 LSST DM C++ Programming Style Guidelines, Section 4 File
-Rule 4-1 C++ header files must have the extension .h (preferred) 
-     or .hpp (allowed). Source files must have the extension .cc .
+Rule 4-1a The head of each .h and each .cc file must being with a fixed format 
+          comment declaring the file contents and format to emacs.
 
 
 EXAMPLE
 
-    MyClass.cc, MyClass.h
+For C++:
+    // -*- LSST-C++ -*-
 
 
 DEFINITION
 
-These are accepted C++ standards for file extension. 
+This solved the emacs problem of not recognizing a C++ header file ending 
+in .h.  Vim use is not affected.
 
 
 CAVEAT
 
-Check on .h and .hpp filenames is LsstDm-4-1b/
 
 
 ATTRIBUTION
 
-Implementation based on Parasoft:NAMING-38. No changes.
 
 */
 
 
 // EXAMPLE
 
-// file.cpp    // Violation
-
-void foo( ) {
-}
-
-
-
-// REPAIR
-
-// file.cc      // OK
-
-void goo( ) {
-}
-
+/*
+This file is an example which does NOT include the header line. 
+All other source files have the correct header.
+*/

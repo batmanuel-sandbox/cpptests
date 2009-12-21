@@ -25,8 +25,8 @@
 RULE
 
 [LsstDm-3-2a - 3]
-Begin non-const global or local non-boolean variable names with a lowercase 
-letter; begin non-const global or local boolean variable names with one of
+Begin non-const, global or local, non-boolean variable names with a lowercase 
+letter; begin non-const, global or local, boolean variable names with one of
 {is can has should} followed by an uppercase letter.
 
 
@@ -40,7 +40,7 @@ Rule 3-24 The prefix 'is', 'can', 'has', 'should' should be prepended to
 
 EXAMPLE 
 
-    line, savingsAccount, isWidget
+    int lineWidth;
 
 
 DEFINITION
@@ -78,16 +78,41 @@ int _depthBad;                // VIOLATION
 bool WidgetBad;               // VIOLATION
 bool thingyBad;               // VIOLATION
 
-void setBadDepthDetonation(int depthDetonation){
+void setBadDepthDetonation(int depthDetonation)
+{
     int Height;                // VIOLATION
     int _depth;                // VIOLATION
     bool Widget;               // VIOLATION
     bool thingy;               // VIOLATION
-    _depth = depthDetonation;  // VIOLATION
-    Height = depthDetonation;  // VIOLATION
+    Height = _depth;
     Widget = 1;
     thingy = 0;
 };
+bool badLocal;           // VIOLATION
+
+class BadClass {
+public:
+    int   _a;            // VIOLATION
+    int   _isA;          // VIOLATION
+    int   Aa;            // VIOLATION
+    bool  aBool;         // Poor form but does not violate this Rule
+    bool  _isBool;       // VIOLATION
+protected:
+    int   _b;            // VIOLATION
+    int   _isB;          // VIOLATION
+    int   Bb;            // VIOLATION
+    bool  bBool;         // Poor form but does not violate this Rule
+    bool  _hasBool;      // VIOLATION
+private:
+    int  length;         // VIOLATION
+    bool cBool;          // VIOLATION
+    bool shouldBool;     // VIOLATION
+};
+
+void badFcn() {
+    bool badFcnVar;
+}
+
 
 
 
@@ -97,15 +122,37 @@ int depthGood;                 // OK
 bool isWidgetGood;             // OK
 bool hasThingyGood;            // OK
 
-void setGoodDepthDetonation(int depthDetonation){
-    int const Width=3;           // not an error since it's a const
+void setGoodDepthDetonation(int depthDetonation)
+{
+    int const Width=3;          // not an error since it's a const
     int height;                // OK
     int depth;                 // OK
     bool isWidget;             // OK
     bool hasThingy;            // OK
-    depth = depthDetonation;   // OK
-    height = depthDetonation;  // OK
-    isWidget = 1;
-    hasThingy = 0;
+    depth = Width;
+    height = depth;
+    isWidget = 1;              // OK
+    hasThingy = 0;             // OK
 };
+
+bool isGoodLocal;     // OK
+
+class GoodClass {
+public:
+    int   a;          // OK
+    int   isA;        // OK poor form; Rule doesn't complain re bool prefixes
+    bool  isBool;     // OK
+protected:
+    int   b;          // OK
+    int   isB;        // OK poor form; Rule doesn't complain re bool prefixes
+    bool  hasBool;    // OK
+private:
+    int  _length;     // OK
+    bool _canBool;    // OK
+    bool _shouldBool; // OK
+};
+
+void goodFcn() {
+    bool isGoodFcnVar; // OK
+}
 

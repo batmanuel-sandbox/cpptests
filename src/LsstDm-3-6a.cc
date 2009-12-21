@@ -39,6 +39,7 @@ lowercase letter  and based on component or directory name.
 EXAMPLE
 
 namespace afwMath = lsst::afw::math;
+namespace pexLog = lsst::pex::logging;
 
 
 DEFINITION
@@ -48,9 +49,10 @@ Rule improves readability and maintainability.
 
 CAVEAT 
 
-This Rule only checks that namespace names are lowercase;
+This Rule only checks that namespace names are leading lowercase;
 it does not check that namespace names are based on component 
-or directory name
+or directory name. Nor does it require the alias to be defined in the
+source of the namespace's module.
 
 
 ATTRIBUTION

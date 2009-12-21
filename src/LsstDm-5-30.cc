@@ -25,16 +25,23 @@
 RULE 
 
 [LsstDm-5-30-3]
-Avoid magic numbers 
+The use of magic numbers  should be avoided.
 
 
 SPECIFICATION
 
 LSST DM C++ Programming Style Guidelines, Section 5 Statements
-Rule 5-30 The use of magic numbers in the code must be avoided. 
+Rule 5-30 The use of magic numbers in the code should be avoided. 
 
 
 EXAMPLE
+    #define MAX_ITERATION 25
+    int const MAX_ITERATIONS = 25;
+    
+    int getMaxIterations() {     
+        return 25;
+    }
+
 
 
 DEFINITION
@@ -88,7 +95,8 @@ int good( float a[], float b ) {
     int i = 5;        // OK
     a[i] = MAX;       // OK
     e = MAX;          // OK
-    ::bar(a[5]);        // OK
+    ::bar(a[5]);      // OK  
+    ::bar(a[i]);      //    ?????????????
     return  MAX;      // OK
 }
 

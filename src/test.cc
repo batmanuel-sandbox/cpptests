@@ -21,59 +21,13 @@
  * see <http://www.lsstcorp.org/LegalNotices/>.
  */
 
-/* 
-RULE
+#if !defined(LSST_TEST_C)     //!< multiple inclusion guard macro
+#define LSST_TEST_C 1
 
-If a function has no parameters, use () instead of ( void )
-[LsstDm-6-6a - 5]   (but this description was deleted in 11/2009 C++ Std rev.
-
-SPECIFICATION
-
-LSST DM C++ Programming Style Guidelines, Section 6 Layout and Comments
-Rule 6-6 The function declarations should have the following form:
-             void someMethod() 
-             {
-                 ...
-             }
-
-EXAMPLE
-
-void someMethod() 
-{
-    ...
+void goo( ) {
 }
 
 
-DEFINITION
-
-This follows from the general block rule specified in 6-4. 
-
-
-CAVEAT
-
-
-
-ATTRIBUTION
-
-Implementation and example copied from Parasoft:CODSTA-07; unchanged.
-*/
-
-
-// EXAMPLE
-
-void bad(void)            // Violation
-{
-    int  *d;
-    void *p = (void *) d;
-}
-
-
-// REPAIR
-
-void good()                // OK
-{
-    int  *d;
-    void *p = (void *) d;
-}
+#endif    // end LSST_TEST_C
 
 

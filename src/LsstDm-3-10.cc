@@ -46,7 +46,8 @@ EXAMPLE
 class SomeClass
 {
 private:
-    int  _length;
+    int  _depth;
+    int  _computeBlob();
 }
 
 void setDepth(int depth){
@@ -99,7 +100,7 @@ Implementation copied from Parasoft:NAMING-07; unchanged.
 
 
 // EXAMPLE
-bool BadLocal;           // VIOLATION
+bool badLocal;           // VIOLATION
 
 class BadClass {
 public:     
@@ -121,7 +122,7 @@ private:
 };
 
 void badFcn() {
-    bool BadFcnVar;
+    bool badFcnVar;
 }
 
 // REPAIR

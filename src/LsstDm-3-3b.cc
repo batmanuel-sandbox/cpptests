@@ -38,7 +38,14 @@ uppercase using underscore to separate words.
 
 EXAMPLE
 
+    // Rule applies only to const variables that represent constants
+    // i.e. those that ouwl be set using an enum or #define in C
     #define MAX_ITERATION 25
+    int const MAX_ITERATIONS = 25;
+    
+    // This rule does not apply to variables determined at point of definition
+    void foo(sring const& filename);
+    float const r2 = r*r;           // radius^2
 
 
 DEFINITION

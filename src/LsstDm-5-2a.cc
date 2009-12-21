@@ -73,28 +73,26 @@ Implemented based on: Parasoft:CODSTA-CPP-46; unchanged.
 
 // EXAMPLE
 
-// file: TestFoo.h
-class TestAllFoo {  // Violation
+class Bad {  
+protected:          // Violation of order
+    void bad1( );
 public:
-    void foo1( );
-protected:
-    void foo2( );
+    void bad2( );
 private:
-    void foo3( );
+    void bad3( );
 };
 
 
 
 // REPAIR
 
-// file: Foo.h
-class Foo {  // OK
-public:
-    void foo1( );
+class Good {  
+public:            // OK order
+    void good1( );
 protected:
-    void foo2( );
+    void good2( );
 private:
-    void foo3( );
+    void good3( );
 };
 
 

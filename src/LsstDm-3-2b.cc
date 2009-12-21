@@ -24,7 +24,7 @@
 /*
 RULE
 
-[LsstDm-3-2a - 3]
+[LsstDm-3-2b - 3]
 Begin enum variable names with a lowercase letters
 
 
@@ -35,9 +35,9 @@ Rule 3-2  Variable names must be in mixed case starting with lower case.
 
 EXAMPLE
 
-        line, savingsAccount
-        enum account { SAVINGS, CHECKING};
-
+    int lineWidth;
+    enum Account {ACCOUNT_SAVINGS, ACCOUNT_CHECKING};
+    Account bankAccount;
 
 DEFINITION
 
@@ -68,10 +68,10 @@ Implementation copied from Parasoft: NAMING-06.
 
 // EXAMPLE
 
-enum Account { BAD_SAVINGS, BAD_CHECKING };    // Violation
+enum account { BAD_SAVINGS, BAD_CHECKING };    // Violation
 
 
 
 // REPAIR
 
-enum account { GOOD_SAVINGS, GOOD_CHECKING };    // OK
+enum Account { GOOD_SAVINGS, GOOD_CHECKING };    // OK

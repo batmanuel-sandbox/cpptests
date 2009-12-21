@@ -35,10 +35,10 @@ Rule 3-24  The prefix ;is; should be used for boolean variables and methods.
 
 EXAMPLE 
 
-    isSet, isVisible, isFinished, isFound, isOpen
+    bool isSet, isVisible, isFinished, isFound, isOpen;
     bool hasLicense();
     bool canEvaluate();
-    Bool shouldSort();
+    bool shouldSort();
 
 DEFINITION
 
@@ -65,7 +65,7 @@ Implementation based on Parasoft: NAMING-08.
 
 // EXAMPLE
 
-bool Bad;              // Violation
+bool bad;              // Violation
 
 class BadClass {
 public:

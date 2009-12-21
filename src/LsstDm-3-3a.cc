@@ -39,8 +39,9 @@ uppercase using underscore to separate words.
 
 EXAMPLE
 
-    enum fish { TROUT, CARP, HALIBUT };
-
+    enum Swimmers { TROUT, CARP, HALIBUT };
+    Swimmers tastySwimmers;
+    enum { FISH_TROUT, FISH_CARP, FISH_HALIBUT };
 
 DEFINITION
 
@@ -55,12 +56,12 @@ Implementation based on Parasoft:NAMING-42; modified for LSST needs.
 
 // EXAMPLE
 
-enum switchPosition {up, down}; // Violation
-
-enum switchPosition1 {Up1, Down1}; // Violation
+enum SwitchPosition {upHigh, down_Low}; // Violation
+enum SwitchPosition1 {Up, Down}; // Violation
 
 
 // REPAIR
 
-enum switchPosition2 {UP2, DOWN2};  // OK
+enum SwitchPosition2 {UP_HIGH, DOWN_LOW};  // OK
+enum SwitchPosition3 {UP, DOWN};  // OK
 

@@ -65,24 +65,20 @@ Copied from NAMING-29; modified to disallow suffices of 'T', 'Type'
 
 // EXAMPLE
 
-class MyClass {
+class MyClass 
+{
     int count;
 };
-typedef MyClass mya;        // Violation of Rule 3-1 
-typedef MyClass mybT;       // Violation of Rule 3-1 and Rule 3-5a
-typedef MyClass mycType;    // Violation of Rule 3-1 and Rule 3-5a
-typedef MyClass MydT;       // Violation of Rule 3-5a
-typedef MyClass MyeType;    // Violation of Rule 3-5a
+typedef MyClass MybT;       // Violation 
+typedef MyClass MycType;    // Violation
 
 
 // REPAIR
 
-class MyClassG {
+class MyClassG 
+{
     int count;
 };
-typedef MyClassG Mya;        // OK
 typedef MyClassG Myb;        // OK
 typedef MyClassG Myc;        // OK
-typedef MyClassG Myd;        // OK
-typedef MyClassG Mye;        // OK
 

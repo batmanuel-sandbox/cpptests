@@ -25,7 +25,7 @@
 RULE
 
 [LsstDm-3-4c - 3]
-Place left parenthesis directly after function name.
+Place left parenthesis directly after function name when declaring it.
 
 
 SPECIFICATION
@@ -51,7 +51,8 @@ Improves readability.
 
 CAVEAT 
 
-This Rule only checks that left parenthesis is positioned correctly.
+This Rule only checks the left parenthesis is positioned correctly in the
+function declaration and NOT when invoking it.
 
 
 
@@ -62,21 +63,21 @@ Implementation based on Parasoft:FORMAT-30.
 
 
 // EXAMPLE TO FAIL
-int bad () {    // Violation
+int bad () {              // Violation
     int const SIZE = 5;
     return SIZE;
 };
 
-int myBadSize = bad ();    // Violation
+int myBadSize = bad ();    // Not checked by this Rule
 
 // REPAIR
 
-int good() {    // OK
+int good() {              // OK
     int const SIZE = 5;
     return SIZE;
 };
 
-int myGoodSize = good();  // OK
+int myGoodSize = good();  // Not checked by this Rule
 
 
 
