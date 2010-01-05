@@ -1,5 +1,5 @@
 /*  THIS RULE IS NOT IMPLEMENTED IN PARASOFT YET!!!
-    // -*- LSST-C++ -*- 
+    // -*- LSST-C++ -*-
  */
 /* 
  * LSST Data Management System
@@ -65,3 +65,5 @@ ATTRIBUTION
 This file is an example which does NOT include the header line. 
 All other source files have the correct header.
 */
+
+//#include test.cc

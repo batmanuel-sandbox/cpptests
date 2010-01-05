@@ -95,7 +95,7 @@ void anotherBad()
     if ( 1 == *z );          // VIOLATION
     if ( *z == 1.0 );        // VIOLATION
     if ( 1.0 == *z );        // VIOLATION
-    if ( i == 0.0 );         // VIOLATION
+    if ( i == 0.0 );         // VIOLATION   but Rule not reporting error
     if ( i == 1.0 );         // VIOLATION
     if ( x == 010 );         // VIOLATION
 
@@ -107,7 +107,7 @@ void good( )
 {
     float sigma2;
     if (sigma2 == 0) {}      // OK
-    if (sigma2 == 0.0) {}    // Failing still 
+    if (sigma2 == 0.0) {}    // OK
 }
 
 void anotherGood( float epsilon ) 
@@ -118,20 +118,20 @@ void anotherGood( float epsilon )
     if (x - epsilon <= y && y <= x + epsilon);  // OK
     if (-epsilon <= x && x <= epsilon);         // OK
 
-    if ( x == 0 );
-    if ( x == 00 );
-    if ( 0 == x ); 
-    if ( 0 == 1.0 );         
-    if ( 1.0 == 0 );
-    if ( 0 == 0.0 );
-    if ( 0.0 == 0 );
-    if ( x == 0.0 );  //Failing still
-    if ( 0.0 == x );  //Failing still
-    if ( z == 0 );
-    if ( *z == 0 );
-    if ( *z == 0.0 ); //Failing still
-    if ( i == 0 );
-    if ( i == 1 );
-    if ( i == j );
+    if ( x == 0 );            // OK
+    if ( x == 00 );           // OK
+    if ( 0 == x );            // OK
+    if ( 0 == 1.0 );          // OK
+    if ( 1.0 == 0 );          // OK
+    if ( 0 == 0.0 );          // OK
+    if ( 0.0 == 0 );          // OK
+    if ( x == 0.0 );          // OK
+    if ( 0.0 == x );          // OK
+    if ( z == 0 );            // OK
+    if ( *z == 0 );           // OK
+    if ( *z == 0.0 );         // OK
+    if ( i == 0 );            // OK
+    if ( i == 1 );            // OK
+    if ( i == j );            // OK
 }
 
